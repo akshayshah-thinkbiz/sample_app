@@ -9,6 +9,9 @@ gem 'bootstrap-sass', '3.3.7'
 gem 'bcrypt', '3.1.12' 
 gem 'rails-ujs'
 gem 'jquery-rails'
+gem 'faker'
+gem 'will_paginate', '3.1.6'
+gem 'will_paginate-bootstrap4'
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'sqlite3' 
@@ -20,6 +23,7 @@ end
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'pry-nav'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes

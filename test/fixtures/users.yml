@@ -4,3 +4,46 @@ vishal:
   name: vishal
   email: vishal@gmail.com
   password_digest: <%= User.digest('password') %>
+  admin: true
+
+Akshay:
+  name: Akshay
+  email: akshay@thinkbiz.co.in  
+  password_digest: <%= User.digest('password') %>
+
+jay:
+  name: jay
+  email: jay@gmail.com
+  password_digest: <%= User.digest('password') %>
+
+pintoo:
+  name: pintoo
+  email: pintoo@gmail.com
+  password_digest: <%= User.digest('password') %>
+
+jaydev:
+  name: jaydev
+  email: jaydev@gmail.com
+  password_digest: <%= User.digest('password') %>
+
+lalo:
+  name: lalo
+  email: lalo@gmail.com  
+  password_digest: <%= User.digest('password') %>
+
+hardik:
+  name: hardik
+  email: hardik@gmail.com
+  password_digest: <%= User.digest('password') %>
+
+ranjit:
+  name: ranjit
+  email: ranjit@gmail.com
+  password_digest: <%= User.digest('password') %>
+
+  <% 30.times do |n| %>
+user_<%= n %>:
+  name:  <%= "User #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>
