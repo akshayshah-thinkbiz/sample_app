@@ -1,3 +1,4 @@
+require "letter_opener"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -31,7 +32,30 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.delivery_method = :letter_opener
+  # ActionMailer::Base.perform_deliveries = true
+  # ActionMailer::Base.raise_delivery_errors = false
+  # config.action_mailer.perform_deliveries = true
+
+#   LetterOpener.configure do |config|
+#     #To overrider the location for message storage.
+#     #Default value is <tt>tmp/letter_opener</tt>
+#     config.location = Rails.root.join('tmp', 'my_mails')
+# config.action_mailer.delivery_method = :letter_opener
+#     # To render only the message body, without any metadata or extra containers or styling.
+#     # Default value is <tt>:default</tt> that renders styled message with showing useful metadata.
+#     config.message_template = :light
+#   end
+
+  # Mail.defaults do
+  #   delivery_method LetterOpener::DeliveryMethod, :location => File.expand_path('../tmp/letter_opener',__FILE__)
+  # end
+
+  ActionMailer::Base.add_delivery_method :letter_opener, LetterOpener::DeliveryMethod, :location => File.expand_path('../tmp/letter_opener', __FILE__)
+  ActionMailer::Base.delivery_method = :letter_opener
+  # host = 'localhost:3000'
+  config.action_mailer.default_url_options = { :host => 'localhost:3000'}
 
   config.action_mailer.perform_caching = false
 

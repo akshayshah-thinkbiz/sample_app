@@ -1,10 +1,7 @@
 require 'test_helper'
 
 class UsersIndexTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
-
+  
   	def setup
   		@admin = users(:vishal)
   		@non_admin = users(:Akshay)

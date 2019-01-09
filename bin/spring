@@ -6,7 +6,7 @@
 unless defined?(Spring)
   require 'rubygems'
   require 'bundler'
-
+  require 'letter_opener'
   lockfile = Bundler::LockfileParser.new(Bundler.default_lockfile.read)
   spring = lockfile.specs.detect { |spec| spec.name == "spring" }
   if spring
