@@ -17,15 +17,7 @@ class User < ApplicationRecord
 												  BCrypt::Password.create(string, cost: cost)
 	end
 
-	def downcase_email
-		self.email = email.downcase
-	end
-
-	def create_activation_digest
-		# binding.pry
-		self.activation_token = User.new_token
-		self.activation_digest = User.digest(activation_token)
-	end
+	
 
 	def User.new_token
 		SecureRandom.urlsafe_base64
@@ -51,8 +43,19 @@ class User < ApplicationRecord
  		# update_attribute(:activated_at, Time.zone.now)
  	end
 
- 	#Sends activation email.
  	def send_activation_email
- 		UserMailer.account_activation(self).deliver_now
- 	end
+    UserMailer.account_activation(self).deliver_now
+  	end
+
+  	private
+
+  	def downcase_email
+		self.email = email.downcase
+	end
+
+	def create_activation_digest
+		# binding.pry
+		self.activation_token = User.new_token
+		self.activation_digest = User.digest(activation_token)
+	end
 end
