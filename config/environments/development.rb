@@ -6,7 +6,7 @@ Rails.application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   Rails.application.routes.default_url_options[:host] = 'localhost:3000'
-  
+
   config.cache_classes = false
 
   # Do not eager load code on boot.
@@ -57,8 +57,8 @@ Rails.application.configure do
   ActionMailer::Base.add_delivery_method :letter_opener, LetterOpener::DeliveryMethod, :location => File.expand_path('../tmp/letter_opener', __FILE__)
   ActionMailer::Base.delivery_method = :letter_opener
   # host = 'localhost:3000'
-  config.action_mailer.default_url_options = { :host => 'localhost:3000'}
-
+  # config.action_mailer.default_url_options = { :host => 'localhost:3000'}
+  config.action_mailer.default_url_options = { :host => 'localhost', :port => 3000 }
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
