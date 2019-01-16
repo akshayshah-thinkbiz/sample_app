@@ -16,3 +16,9 @@ User.create!(name: "vishal", email: "vishal@gmail.com", password: "foobar", pass
 	password = "password"
 	User.create!(name: name, email: email, password: password, password_confirmation: password, activated: true, activated_at: Time.zone.now)
 end
+
+users = User.order(:created_at).take(6)
+50.times do
+	content = Faker::Lorem.sentence(5)
+	users.each { |user| user.mircoposts.create!(content: content)}
+end

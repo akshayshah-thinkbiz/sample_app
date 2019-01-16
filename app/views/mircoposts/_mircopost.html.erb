@@ -1,0 +1,15 @@
+<li id="mircopost-<%= mircopost.id %>">
+  <%= link_to gravatar_for(mircopost.user, size: 50), mircopost.user %>
+  <span class="user"><%= link_to mircopost.user.name, mircopost.user %></span>
+  <span class="content">
+    <%= mircopost.content %>
+      <%= image_tag mircopost.picture.url if mircopost.picture? %>
+    </span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(mircopost.created_at) %> ago.
+    <% if current_user?(mircopost.user) %>
+      <%= link_to "delete", mircopost, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+</li>

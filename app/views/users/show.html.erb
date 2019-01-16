@@ -8,4 +8,13 @@
 			</h1>	
 		</section>
 	</aside>
+	<div class="col-md-8">
+  	<% if @user.mircoposts.any? %>
+  		<h3>Mircoposts (<%= @user.mircoposts.count %> </h3>
+  		<ol class="mircoposts">
+  			<%= render @mircoposts %>
+  		</ol>
+  		<%= will_paginate @mircoposts %> 
+  	<% end %>
+  </div>
 </div>

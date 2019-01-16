@@ -12,12 +12,15 @@ gem 'jquery-rails'
 gem 'faker'
 gem 'will_paginate', '3.1.6'
 gem 'will_paginate-bootstrap4'
+gem 'carrierwave'
+gem 'mini_magick'
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'sqlite3' 
 end
 group :production do
   gem 'pg'
+  gem 'fog', '1.42'
 end
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
